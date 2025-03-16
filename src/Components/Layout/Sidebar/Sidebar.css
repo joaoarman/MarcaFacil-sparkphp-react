@@ -1,0 +1,134 @@
+.sidebar {
+    width: var(--sidebar-width);
+    height: var(--sidebar-height);
+    background-color: var(--sidebar-bg-color);
+    border-right: 1px solid var(--sidebar-border-color);
+
+    margin-top: var(--header-height);
+    padding: 0;
+
+    position: fixed;
+    left: 0;
+    z-index: 100;
+}
+
+.sidebar-options {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px 10px 20px 10px;
+}
+
+.sidebar-option {    
+    padding: 15px 15px;
+    border-radius: 7.5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.sidebar-option.active {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+}
+
+.sidebar-option:hover {
+    background-color: rgba(151, 151, 151, 0.352); 
+}
+
+.sidebar-option:last-child {    
+    margin-top: auto;
+}
+
+.sidebar-option-icon-span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 1200px) {
+
+    .sidebar {
+        width: var(--sidebar-width);
+        height: var(--sidebar-mobile-height);
+        background-color: var(--sidebar-bg-color);
+
+        margin-top: 0;
+        padding: 0;
+
+        position: fixed;
+        left: 0;
+        z-index: 100;
+        
+        opacity: 1;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        pointer-events: none;
+    }   
+
+    .sidebar.open {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(0);
+    }
+
+    .mobile-sidebar-header {
+        height: var(--header-height);
+        max-height: var(--header-height);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 0 15px;
+
+        border-bottom: 1px solid var(--sidebar-border-color);
+    }
+
+
+    .sidebar-overlay {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none;
+    }
+
+    .sidebar-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .sidebar-options {
+        height: calc(100% - var(--header-height));
+    }
+
+
+    .FaTimes {
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
+
+
+

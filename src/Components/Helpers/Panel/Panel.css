@@ -1,0 +1,39 @@
+.panel {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+}
+  
+.panel-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.panel-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
+}
+
+/* Quando o painel estiver aberto */
+.panel-content.open {
+    margin-top: 20px;
+}
+  
+
+/* Header Icon */
+.panel-header-icon {
+    cursor: pointer;
+}
+
+.panel-header-icon svg {
+    transition: transform 0.5s ease;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+  
